@@ -2,10 +2,10 @@
 
 Personal ESP32 monorepo using ESP-IDF. Multiple firmware projects share a single SDK.
 
-## Setup
+## Setup (macOS Apple Silicon)
 
 ```bash
-brew install cmake ninja python   # macOS prerequisites
+brew install cmake ninja python
 make esp-idf                       # Clone and pin ESP-IDF
 cd esp-idf && ./install.sh         # Install toolchains (one-time)
 ```
