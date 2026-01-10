@@ -7,7 +7,7 @@ endif
 
 ESP_IDF_COMMIT := $(shell cat $(ESP_IDF_COMMIT_FILE))
 
-.PHONY: esp-idf check-esp-idf update-esp-idf clean
+.PHONY: esp-idf check-esp-idf update-esp-idf secrets clean
 
 ## Clone esp-idf if missing and checkout pinned commit
 esp-idf:
@@ -34,6 +34,15 @@ check-esp-idf:
 update-esp-idf:
 	@cd $(ESP_IDF_DIR) && git rev-parse HEAD > ../esp-idf.commit
 	@echo "Updated esp-idf.commit"
+
+## Create secrets.cmake from example if it doesn't exist
+secrets:
+	@if [ ! -f secrets.cmake ]; then \
+		cp secrets.cmake.example secrets.cmake; \
+		echo "Created secrets.cmake - edit with your WiFi credentials"; \
+	else \
+		echo "secrets.cmake already exists"; \
+	fi
 
 ## Remove local esp-idf clone
 clean:

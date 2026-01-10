@@ -1,3 +1,6 @@
+# Secrets
+secrets.cmake
+
 # ESP-IDF SDK
 esp-idf/
 
@@ -6,6 +9,7 @@ esp-idf/
 **/sdkconfig
 **/sdkconfig.old
 **/sdkconfig.defaults
+**/managed_components/
 
 # Tooling
 **/__pycache__/
