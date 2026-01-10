@@ -1,5 +1,11 @@
 ESP_IDF_DIR := esp-idf
-ESP_IDF_COMMIT := $(shell cat esp-idf.commit)
+ESP_IDF_COMMIT_FILE := esp-idf.commit
+
+ifeq ($(wildcard $(ESP_IDF_COMMIT_FILE)),)
+$(error esp-idf.commit file not found)
+endif
+
+ESP_IDF_COMMIT := $(shell cat $(ESP_IDF_COMMIT_FILE))
 
 .PHONY: esp-idf check-esp-idf update-esp-idf clean
 
