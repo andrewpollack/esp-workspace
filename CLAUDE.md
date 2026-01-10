@@ -52,3 +52,16 @@ source ./esp-idf/export.sh
 
 - `esp-idf.commit`: Pinned ESP-IDF commit hash for reproducibility
 - `Makefile`: SDK management (clone, verify, update)
+
+## Commit Style
+
+Use [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+feat: new feature
+fix(scope): bug in scope
+feat!: breaking change
+chore(deps): update dependencies
+```
+
+Types: `feat`, `fix`, `chore`, `docs`, `build`, `ci`, `perf`, `refactor`, `revert`, `style`, `test`
