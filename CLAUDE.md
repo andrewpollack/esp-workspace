@@ -28,7 +28,11 @@ idf.py build              # Build firmware
 idf.py flash monitor      # Flash and open serial monitor
 idf.py set-target esp32   # Set target chip (esp32, esp32s3, etc.)
 idf.py menuconfig         # Configure project options
-idf.py create-project <name>  # Create new project from repo root
+```
+
+From repo root:
+```bash
+idf.py create-project esp32-<name>  # Create new project
 ```
 
 ## Architecture
