@@ -9,14 +9,10 @@ This is a personal ESP32 monorepo using ESP-IDF. Multiple firmware projects shar
 ## Setup Commands
 
 ```bash
-# Initial setup (clone and pin ESP-IDF)
-make esp-idf
-
-# Verify ESP-IDF is at expected commit
-make check-esp-idf
-
-# Update pinned commit after upgrading ESP-IDF
-make update-esp-idf
+make esp-idf        # Clone and pin ESP-IDF
+make secrets        # Create secrets.cmake for WiFi credentials
+make check-esp-idf  # Verify ESP-IDF is at expected commit
+make update-esp-idf # Update pinned commit after upgrading
 ```
 
 ## Build Commands
@@ -50,10 +46,25 @@ source ./esp-idf/export.sh
 
 ## Key Files
 
-- `esp-idf.commit`: Pinned ESP-IDF commit hash for reproducibility
-- `Makefile`: SDK management (clone, verify, update)
+- `esp-idf.commit`: Pinned ESP-IDF commit hash
+- `secrets.cmake`: WiFi credentials (gitignored)
+- `Makefile`: SDK management and setup
+
+## Common Components
+
+- **logging**: `log_info()`, `log_warn()`, `log_error()` wrappers
+- **wifi**: `wifi_init_sta()` connects using credentials from `secrets.cmake`
+
+## Project Configuration
+
+Set mDNS hostname in project's `CMakeLists.txt`:
+```cmake
+set(MDNS_HOSTNAME "my-device")
+```
 
 ## Commit Style
+
+Before committing, check if `README.md`, `CLAUDE.md`, or `Makefile` need updates. Include doc updates in the same commit as their functional changes.
 
 Use [Conventional Commits](https://www.conventionalcommits.org/):
 

@@ -45,6 +45,11 @@ idf.py set-target esp32
   - `logging/` - Log wrapper (`log_info`, `log_warn`, `log_error`)
   - `wifi/` - WiFi connection (credentials from `secrets.cmake`)
 
+Set mDNS hostname per project in `CMakeLists.txt`:
+```cmake
+set(MDNS_HOSTNAME "my-device")
+```
+
 Shared component layout:
 ```
 common/my_component/
