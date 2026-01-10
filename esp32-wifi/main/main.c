@@ -8,7 +8,6 @@
 #include "wifi.h"
 
 #define TAG "main"
-#define MDNS_HOSTNAME "esp32-wifi"
 
 static void mdns_init_service(void)
 {
