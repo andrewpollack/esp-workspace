@@ -1,0 +1,20 @@
+# ESP-IDF SDK
+esp-idf/
+
+# Build artifacts
+**/build/
+**/sdkconfig
+**/sdkconfig.old
+**/sdkconfig.defaults
+
+# Tooling
+**/__pycache__/
+**/.venv/
+**/.python-version
+
+# IDE
+**/.vscode/
+**/.idea/
+
+# macOS
+.DS_Store
