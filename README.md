@@ -8,6 +8,13 @@ Personal ESP32 monorepo using ESP-IDF. Multiple firmware projects share a single
 brew install cmake ninja python
 make esp-idf                       # Clone and pin ESP-IDF
 cd esp-idf && ./install.sh         # Install toolchains (one-time)
+make secrets                       # Create secrets.cmake for WiFi
+```
+
+Edit `secrets.cmake` with your WiFi credentials:
+```cmake
+set(WIFI_SSID "your_network")
+set(WIFI_PASSWORD "your_password")
 ```
 
 ## Usage
@@ -35,6 +42,8 @@ idf.py set-target esp32
 - `esp-idf/` - SDK (gitignored, pinned via `esp-idf.commit`)
 - `esp32-*/` - Standalone projects
 - `common/` - Shared components
+  - `logging/` - Log wrapper (`log_info`, `log_warn`, `log_error`)
+  - `wifi/` - WiFi connection (credentials from `secrets.cmake`)
 
 Shared component layout:
 ```
