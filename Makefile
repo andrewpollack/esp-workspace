@@ -7,7 +7,25 @@ endif
 
 ESP_IDF_COMMIT := $(shell cat $(ESP_IDF_COMMIT_FILE))
 
-.PHONY: esp-idf check-esp-idf update-esp-idf secrets clean
+.DEFAULT_GOAL := help
+.PHONY: help esp-idf check-esp-idf update-esp-idf secrets clean
+
+## Show available commands
+help:
+	@echo "Setup:"
+	@echo "  make esp-idf        Clone and pin ESP-IDF"
+	@echo "  make secrets        Create secrets.cmake for WiFi"
+	@echo "  make check-esp-idf  Verify ESP-IDF commit"
+	@echo "  make update-esp-idf Update pinned commit"
+	@echo "  make clean          Remove esp-idf clone"
+	@echo ""
+	@echo "Build flow (from project dir):"
+	@echo "  source ../esp-idf/export.sh"
+	@echo "  idf.py set-target esp32"
+	@echo "  idf.py build"
+	@echo "  idf.py flash monitor"
+	@echo ""
+	@echo "Exit monitor: Ctrl+]"
 
 ## Clone esp-idf if missing and checkout pinned commit
 esp-idf:
